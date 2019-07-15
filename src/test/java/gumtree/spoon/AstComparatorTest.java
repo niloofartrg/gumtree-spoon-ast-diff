@@ -1808,5 +1808,18 @@ public class AstComparatorTest {
 		assertEquals(4, actions.size());
 
 	}
+	
+	
+	@Test
+	public void testNPEfixFailing() throws Exception {
+		AstComparator diff = new AstComparator();
+		File fl = new File("src/test/resources/examples/d4j/NPEfix2/NPEfix14_fourteen_s.java");
+		File fr = new File("src/test/resources/examples/d4j/NPEfix2/NPEfix14_fourteen_t.java");
+
+		Diff result = diff.compare(fl, fr);
+		List<Operation> actions = result.getAllOperations();
+		assertEquals(1, actions.size());
+
+	}
 
 }
